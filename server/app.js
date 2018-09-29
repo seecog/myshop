@@ -45,6 +45,9 @@ app.use('/api/profile',categoryRouting);
 var productRouting = require("./routings/product.routing");
 app.use('/api/profile',productRouting);
 
+var billingRouting = require("./routings/billing.routing");
+app.use('/api/billing',billingRouting);
+
 app.listen(config.port,()=>{
     console.log('Server starts at port '+config.port);
 })

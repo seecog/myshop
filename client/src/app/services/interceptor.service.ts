@@ -6,7 +6,7 @@ export class InterceptorService implements HttpInterceptor{
 
 intercept(req : HttpRequest<any>,handler : HttpHandler) : Observable<HttpEvent<any>>{
     var cloneReq = req.clone({
-        headers : req.headers.set('token',localStorage.get('token'))
+        headers : req.headers.set('token',localStorage.getItem('token'))
     })
     return handler.handle(cloneReq)
 }

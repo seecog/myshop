@@ -19,6 +19,7 @@ import { MyordersComponent } from './myorders/myorders.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { InterceptorService } from './services/interceptor.service';
+import { CategoriesComponent } from './categories/categories.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { InterceptorService } from './services/interceptor.service';
     ProfileComponent,
     MyordersComponent,
     MyproductsComponent,
-    AddproductComponent
+    AddproductComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,10 @@ import { InterceptorService } from './services/interceptor.service';
          {path : 'profile',component : ProfileComponent},
          {path : 'myproducts',component : MyproductsComponent},
          {path : 'myorders',component : MyordersComponent},
-         {path : 'addproducts',component : AddproductComponent}
+         {path : 'addproducts',component : AddproductComponent},
+         {
+           path : 'categories',component : CategoriesComponent
+         }
        ]
       
       },
