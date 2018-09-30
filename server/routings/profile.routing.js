@@ -22,5 +22,20 @@ route.get('/user',jwtCheck,(req,res,next)=>{
     })
 })
 
+route.put('/user',jwtCheck,(req,res,next)=>{
+    User.update({_id : req.decoded.user._id},req.body,(err,user)=>{
+        if(err){
+            console.log('The error is ',err);
+        }
+        else{
+            console.log('Record updated')
+            res.json({
+                success : true,
+                message : "User record updated successfully"
+            })
+        }
+    })
+})
+
 
 module.exports = route;

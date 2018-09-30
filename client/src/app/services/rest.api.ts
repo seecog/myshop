@@ -15,4 +15,8 @@ post(link,data){
 return this.http.post(link,data).toPromise();
 }
 
+delete(link)
+{
+    return this.http.delete(link).toPromise();
+}
 }

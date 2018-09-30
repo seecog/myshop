@@ -70,8 +70,32 @@ route.delete('/products/:id',jwtCheck,(req,res)=>{
     })
 })
 
+route.get("/products",jwtCheck,(req,res,next)=>{
+    console.log('The owner is ',req.decoded)
+     Product.find({
+       
+     })
+     .populate("owner")
+     .populate("category")
+     .exec((err,products)=>{
+ if(err){
+     res.json({
+         success : false,
+         message : err
+     })
+ }
+ res.json({
+     success : true,
+     message : "products",
+     products : products,
+     // categoryName : products[0].category.name
+ 
+ })
+     });
+ })
+
 route.get("/ownerproducts",jwtCheck,(req,res,next)=>{
-   console.log('The owner is ',req.decoded.user._id)
+   console.log('The owner is ',req.decoded)
     Product.find({
         owner : req.decoded.user._id
     })
@@ -88,7 +112,7 @@ res.json({
     success : true,
     message : "categories",
     products : products,
-    categoryName : products[0].category.name
+    // categoryName : products[0].category.name
 
 })
     });

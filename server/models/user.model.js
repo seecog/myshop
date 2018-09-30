@@ -5,7 +5,8 @@ var userSchema = new mongoose.Schema({
     name : String,
     password : String,
     picture : String,
-    isSeller : {type : Boolean, default : false},
+    // isSeller : {type : Boolean, default : false},
+    isSeller : {type : Boolean},
     address : {
         addr1 : String,
         addr2 : String,

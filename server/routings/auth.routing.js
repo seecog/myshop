@@ -6,33 +6,33 @@ var config = require("../config");
 
 
 route.post('/login', (req, res, next) => {
-    console.log(req.body.email+"---"+req.body.password)
+    console.log(req.body.email + "---" + req.body.password)
     User.findOne({
         email: req.body.email,
         password: req.body.password
     }, (err, useri) => {
-        console.log('user is ',useri)
+        console.log('user is ', useri)
         if (err) {
-            console.log('The error is ',err)
+            console.log('The error is ', err)
             res.json({
                 success: false,
                 message: err
             })
         }
-        else{
-console.log('The tken user is ',useri);
-        var token = jwt.sign(
-            {
-                user: useri
-            }, config.secret,{
-                expiresIn : '7d'
-            });
-        res.json({
-            succcess: true,
-            message: "Log in successfull",
-            token: token
-        })
-    }
+        else {
+            console.log('The tken user is ', useri);
+            var token = jwt.sign(
+                {
+                    user: useri
+                }, config.secret, {
+                    expiresIn: '7d'
+                });
+            res.json({
+                succcess: true,
+                message: "Log in successfull",
+                token: token
+            })
+        }
 
     })
 })

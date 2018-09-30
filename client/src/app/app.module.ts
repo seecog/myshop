@@ -20,6 +20,8 @@ import { MyproductsComponent } from './myproducts/myproducts.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { InterceptorService } from './services/interceptor.service';
 import { CategoriesComponent } from './categories/categories.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { CategoriesComponent } from './categories/categories.component';
     MyordersComponent,
     MyproductsComponent,
     AddproductComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ProductsComponent,
+    ProductdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +47,16 @@ import { CategoriesComponent } from './categories/categories.component';
      RouterModule.forRoot([
        {path : "home",component : HomeComponent,
        children : [
+         {path : '',component : ProductsComponent},
          {path : 'profile',component : ProfileComponent},
          {path : 'myproducts',component : MyproductsComponent},
          {path : 'myorders',component : MyordersComponent},
          {path : 'addproducts',component : AddproductComponent},
          {
            path : 'categories',component : CategoriesComponent
+         },
+         {
+           path : 'product_details/:id',component : ProductdetailComponent
          }
        ]
       
