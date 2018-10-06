@@ -45,6 +45,7 @@ route.post('/signup', (req, res, next) => {
     user.name = req.body.name;
     user.password = req.body.password;
     user.picture = req.body.picture;
+    user.isSeller = req.body.isSeller;
     User.findOne({ email: req.body.email }, (err, existingUser) => {
         if (err) {
             console.log('The error is ', err);

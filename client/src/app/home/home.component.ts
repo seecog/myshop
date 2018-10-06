@@ -3,6 +3,7 @@ import { MenuService } from '../services/menu.service';
 // import { DataService } from '../../old_app/app/services/data.service';
 import { RestApi } from '../services/rest.api';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,20 +11,25 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-private user : any = {};
-  constructor(private menuService : MenuService,private restApi : RestApi,private dataService : DataService) {
-  this.getUser();
-   }
+  private user: any = {};
+  constructor(private router: Router, private menuService: MenuService, private restApi: RestApi, private dataService: DataService) {
+    this.getUser();
+  }
 
-   async getUser(){
-var data =await this.restApi.get("http://localhost:3000/api/profile/user");
-console.log(data)
-if(data['success']){
-this.user = data['user'];
-}
-   }
+  async getUser() {
+    var data = await this.restApi.get("http://localhost:3000/api/profile/user");
+    console.log(data)
+    if (data['success']) {
+      this.user = data['user'];
+    }
+  }
 
   ngOnInit() {
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 
 }

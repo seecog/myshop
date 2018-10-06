@@ -13,6 +13,7 @@
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
                     <!-- Datos del vendedor y titulo del producto -->
+                    <app-message></app-message>
                     <h3>{{product.title}}</h3>    
                     
         
@@ -22,18 +23,18 @@
         
                     <!-- Detalles especificos del producto -->
                   
-                    <div class="section" style="padding-bottom:20px;">
+                    <!-- <div class="section" style="padding-bottom:20px;">
                         <h6 class="title-attr"><small>CANTIDAD</small></h6>                    
                         <div>
                             <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
                             <input value="1" />
                             <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
                         </div>
-                    </div>                
+                    </div>                 -->
         
                     <!-- Botones de compra -->
                     <div class="section" style="padding-bottom:20px;">
-                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
+                        <button (click)="addToCart()" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
                           Add To Cart
                         </button>
                     </div>                                        

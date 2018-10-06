@@ -22,13 +22,16 @@ export class LoginComponent implements OnInit {
  async checkLogin() {
 if(this.validate()){
   
-  try{
-    console.log("----")
+  
+    console.log("----",{
+      email : this.email,
+      password : this.password
+    })
   var data = await this.restApi.post("http://localhost:3000/api/auth/login",{
     email : this.email,
     password : this.password
   })
- 
+ console.log("Login status ",data)
   if(data['succcess']){
     console.log('Login status ',data['token']);
     localStorage.setItem('token',data['token'])
@@ -38,10 +41,7 @@ if(this.validate()){
   else{
     console.log('Incorrect login')
   }
-  }
-  catch(err){
-    console.log("The error "+err)
-  }
+  
 }
   }
 

@@ -25,4 +25,15 @@ this.product = res['data'];
     })
   }
 
+  addToCart(){
+    var stt = this.dataService.addToCart(this.product);
+    console.log("The add status is ",stt)
+    if(stt){
+this.dataService.success("Product added to cart successfully")
+    }
+    else{
+      this.dataService.error("Product already added to cart !")
+    }
+  }
+
 }

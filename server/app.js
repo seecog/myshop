@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-mongoose.connect("mongodb://sonu:sonu123456@ds245762.mlab.com:45762/ecommerp",()=>{
+mongoose.connect("mongodb://pankajsimple:pankaj12345@ds141972.mlab.com:41972/amazonowebapplication",()=>{
 console.log('database connected')
 })
 

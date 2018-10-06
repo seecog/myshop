@@ -22,6 +22,8 @@ import { InterceptorService } from './services/interceptor.service';
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { CartComponent } from './cart/cart.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
     AddproductComponent,
     CategoriesComponent,
     ProductsComponent,
-    ProductdetailComponent
+    ProductdetailComponent,
+    CartComponent,
+    OrderdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,14 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
            path : 'categories',component : CategoriesComponent
          },
          {
+          path : 'cart',component : CartComponent
+        },
+         {
            path : 'product_details/:id',component : ProductdetailComponent
+         },
+         {
+           path : 'orderdetail/:id',
+           component : OrderdetailComponent
          }
        ]
       

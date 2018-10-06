@@ -1,3 +1,19 @@
-<p>
-  myorders works!
-</p>
+<h3>My Orders</h3>
+<hr>
+<table class="table">
+<th>Id</th><th>Date</th><th>Total </th><th>Action</th>
+<tr *ngFor="let x of orders;let i =index;">
+  <td>
+    {{i+1}}
+  </td>
+<td>
+  {{x.created | date}}
+</td>
+<td>
+  {{x.totalPrice | currency}}
+</td>
+<td>
+  <a [routerLink]="['/home/orderdetail',x._id]" class="btn btn-warning">Details</a>
+</td>
+</tr>
+</table>
